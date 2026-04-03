@@ -1,0 +1,84 @@
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --rose:        #C2657A;
+  --rose-dark:   #9B4060;
+  --rose-light:  #F5D5DC;
+  --rose-pale:   #FDF0F2;
+  --gold:        #B8935A;
+  --gold-light:  #F0DEC0;
+  --cream:       #FBF6EF;
+  --warm-dark:   #3D2B2B;
+  --warm-mid:    #7A5555;
+  --petal1:      #E8A0AC;
+  --petal2:      #F2C4CB;
+  --petal3:      #D4708A;
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Cormorant Garamond', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--warm-dark);
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 4px; }
+
+/* ─── Global Helpers ─── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 400;
+  color: var(--warm-dark);
+  text-align: center;
+  line-height: 1.2;
+}
+.section-title em {
+  color: var(--rose);
+  font-style: italic;
+}
+.section-subtitle {
+  text-align: center;
+  color: var(--warm-mid);
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-top: 0.5rem;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 3rem;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  height: 1px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, var(--rose-light));
+}
+.divider::after {
+  background: linear-gradient(90deg, var(--rose-light), transparent);
+}
+.divider-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--rose);
+  border-radius: 50%;
+}
