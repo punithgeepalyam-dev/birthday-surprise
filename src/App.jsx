@@ -21,7 +21,6 @@ export default function App() {
     boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
     transition: "0.3s",
   };
-  const [showVideo, setShowVideo] = useState(false);
   const [showIntroVideo, setShowIntroVideo] = useState(false);
   const audioRef = useRef(null);
 
