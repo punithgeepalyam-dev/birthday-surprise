@@ -121,6 +121,7 @@ export default function VideoSection() {
               <video
                 ref={videoRef}
                 src={VIDEO_SRC}
+                type="video/mp4"
                 playsInline
                 onEnded={() => setPlaying(false)}
               />

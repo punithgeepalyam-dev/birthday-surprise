@@ -1,37 +1,39 @@
 /* ─── Reset & Base ─── */
 *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
 }
 
 :root {
-  --rose:        #C2657A;
-  --rose-dark:   #9B4060;
-  --rose-light:  #F5D5DC;
-  --rose-pale:   #FDF0F2;
-  --gold:        #B8935A;
-  --gold-light:  #F0DEC0;
-  --cream:       #FBF6EF;
-  --warm-dark:   #3D2B2B;
-  --warm-mid:    #7A5555;
-  --petal1:      #E8A0AC;
-  --petal2:      #F2C4CB;
-  --petal3:      #D4708A;
-  --font-display: 'Playfair Display', serif;
-  --font-body:    'Cormorant Garamond', serif;
+--rose:        #C2657A;
+--rose-dark:   #9B4060;
+--rose-light:  #F5D5DC;
+--rose-pale:   #FDF0F2;
+--gold:        #B8935A;
+--gold-light:  #F0DEC0;
+--cream:       #FBF6EF;
+--warm-dark:   #3D2B2B;
+--warm-mid:    #7A5555;
+--petal1:      #E8A0AC;
+--petal2:      #F2C4CB;
+--petal3:      #D4708A;
+--font-display: 'Playfair Display', serif;
+--font-body:    'Cormorant Garamond', serif;
 }
 
 html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+scroll-behavior: smooth;
+-webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--warm-dark);
-  overflow-x: hidden;
+font-family: var(--font-body);
+color: var(--warm-dark);
+overflow-x: hidden;
+
+/* Romantic glowing background */
+background: radial-gradient(circle at top, #FFF5F7, var(--cream));
 }
 
 /* ─── Scrollbar ─── */
@@ -41,44 +43,115 @@ body {
 
 /* ─── Global Helpers ─── */
 .section-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  font-weight: 400;
-  color: var(--warm-dark);
-  text-align: center;
-  line-height: 1.2;
+font-family: var(--font-display);
+font-size: clamp(2rem, 6vw, 3.2rem);
+font-weight: 400;
+color: var(--warm-dark);
+text-align: center;
+line-height: 1.2;
+
+/* subtle floating animation */
+animation: floatSoft 4s ease-in-out infinite;
 }
+
 .section-title em {
-  color: var(--rose);
-  font-style: italic;
+color: var(--rose);
+font-style: italic;
+text-shadow: 0 0 10px rgba(194,101,122,0.3);
 }
+
 .section-subtitle {
-  text-align: center;
-  color: var(--warm-mid);
-  font-style: italic;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  margin-top: 0.5rem;
+text-align: center;
+color: var(--warm-mid);
+font-style: italic;
+font-size: clamp(1rem, 2.5vw, 1.25rem);
+margin-top: 0.5rem;
 }
+
 .divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1.5rem 0 3rem;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+margin: 1.5rem 0 3rem;
 }
+
 .divider::before,
 .divider::after {
-  content: '';
-  height: 1px;
-  width: 80px;
-  background: linear-gradient(90deg, transparent, var(--rose-light));
+content: '';
+height: 1px;
+width: 80px;
+background: linear-gradient(90deg, transparent, var(--rose-light));
 }
+
 .divider::after {
-  background: linear-gradient(90deg, var(--rose-light), transparent);
+background: linear-gradient(90deg, var(--rose-light), transparent);
 }
+
 .divider-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--rose);
-  border-radius: 50%;
+width: 8px;
+height: 8px;
+background: var(--rose);
+border-radius: 50%;
+}
+
+/* ─── Animations ─── */
+
+/* Floating effect */
+@keyframes floatSoft {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-6px); }
+}
+
+/* Fade-in effect */
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+0%, 100% { transform: scale(1); }
+25% { transform: scale(1.1); }
+50% { transform: scale(1); }
+75% { transform: scale(1.08); }
+}
+
+.heart-beat {
+display: inline-block;
+animation: heartbeat 1.5s infinite;
+}
+
+/* ─── Buttons ─── */
+button {
+transition: all 0.3s ease;
+}
+
+button:hover {
+transform: scale(1.06);
+box-shadow: 0 8px 20px rgba(194,101,122,0.3);
+}
+
+/* ─── Images ─── */
+img {
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+img:hover {
+transform: scale(1.03);
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ─── Romantic Text Glow ─── */
+.love-text {
+color: var(--rose);
+text-shadow: 0 0 8px rgba(194,101,122,0.4);
 }
