@@ -7,7 +7,7 @@ import React, { useRef, useState } from 'react';
 //       import myVideo from '../assets/bujji-video.mp4';
 //  3. Set:  const VIDEO_SRC = myVideo;
 // ─────────────────────────────────────────────────────────────
-const VIDEO_SRC = process.env.PUBLIC_URL + '/video.mp4';
+const VIDEO_SRC = '/video.mp4';
 
 export default function VideoSection() {
   const videoRef = useRef(null);
